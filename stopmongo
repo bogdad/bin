@@ -1,0 +1,1 @@
+ps aux | grep mongo | grep -v color | tr -s [:space:] | cut -f2 -d ' ' | xargs sudo kill -9

@@ -1,0 +1,1 @@
+ssh -L6464:127.0.0.1:6432 -l vova whateva-zabbix.zapto.org

@@ -1,0 +1,2 @@
+sudo LD_PRELOAD=/usr/lib/libperl.so \
+cocained tcp://*:5000 --verbose -c /home/vshakhov/src/cocaine-example/cocaine.conf

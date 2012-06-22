@@ -1,0 +1,1 @@
+ps aux | grep -v color | grep soapui | tr -s [:space:] | cut -f2 -d' ' | xargs kill -9

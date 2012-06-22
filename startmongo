@@ -1,0 +1,3 @@
+mongod --replSet foo --port 27017 --dbpath ~/mongodata/r0 &
+mongod --replSet foo --port 27018 --dbpath ~/mongodata/r1 &
+mongod --replSet foo --port 27019 --dbpath ~/mongodata/r2 &

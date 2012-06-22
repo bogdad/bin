@@ -1,0 +1,1 @@
+ssh -L 5454:127.0.0.1:5432 -l vova whateva-airtime.zapto.org

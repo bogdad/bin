@@ -1,0 +1,1 @@
+LD_PRELOAD=/usr/lib/libperl.so cocained tcp://*:5000 --verbose --core:modules /usr/local/lib/cocaine --storage:uri /home/vshakhov/cocaine-data
