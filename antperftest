@@ -1,0 +1,20 @@
+rm top.log
+rm top_cocained.log
+rm top_cocaine_slave.log
+rm perftest.log
+rm gc.log
+rm jstat.log
+src/test/resources/run.sh &
+sleep 10s
+echo runnint ant perftest
+ant perftest > perftest.log &
+sleep 5s
+echo running jstat
+jstat -gc -h10 `greppid PerformanceTest` 20000 999999 > jstat.log &
+echo running top ant
+top -b -p `greppid PerformanceTest` > top.log &
+echo top cocained
+top -b -p `greppid cocained` > top_cocained.log &
+echo top cocaine-slave
+top -b -p `greppid cocaine-slave` > top_cocaine_slave.log &
+echo all started
