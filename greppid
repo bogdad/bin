@@ -1,1 +1,1 @@
-psgrep $1 | grep -v screen | grep -v SCREEN | tr -s [:space:] | cut -f2 -d' '
+psgrep $1 | grep -v screen | grep -v defunct | grep -v SCREEN | tr -s [:space:] | cut -f2 -d' '

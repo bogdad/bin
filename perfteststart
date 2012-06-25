@@ -4,15 +4,15 @@ rm top_cocaine_slave.log
 rm perftest.log
 rm gc.log
 rm jstat.log
-src/test/resources/run.sh &
-sleep 10s
+sudo src/test/resources/run.sh &
+sleep 3s
 echo runnint ant perftest
-ant perftest > perftest.log &
+src/main/bin/run.sh &>perftest.log 
 sleep 5s
 echo running jstat
-jstat -gc -h10 `greppid PerformanceTest` 20000 999999 > jstat.log &
+jstat -gc -h10 `greppid Valgrind` 20000 999999 > jstat.log &
 echo running top ant
-top -b -p `greppid PerformanceTest` > top.log &
+top -b -p `greppid Valgrind` > top.log &
 echo top cocained
 top -b -p `greppid cocained` > top_cocained.log &
 echo top cocaine-slave
