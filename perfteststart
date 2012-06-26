@@ -8,11 +8,13 @@ sudo src/test/resources/run.sh &
 sleep 3s
 echo runnint ant perftest
 src/main/bin/run.sh &>perftest.log &
-sleep 5s
+sleep 3s
+perfpid=`greppid Valgrind`
+echo perfpid =$perfpid
 echo running jstat
-jstat -gc -h10 `greppid Valgrind` 20000 999999 > jstat.log &
+jstat -gc -h10 $perfpid 20000 999999 > jstat.log &
 echo running top ant
-top -b -p `greppid Valgrind` > top.log &
+top -b -p $perfpid > top.log &
 echo top cocained
 top -b -p `greppid cocained` > top_cocained.log &
 echo top cocaine-slave
