@@ -2,4 +2,4 @@ pskill top
 pskill jstat
 pskill cocained
 pskill cocaine-slave
-pskill Valgrind
+pskill MainSingleThreaded

@@ -9,7 +9,7 @@ sleep 3s
 echo runnint ant perftest
 src/main/bin/run.sh &>perftest.log &
 sleep 3s
-perfpid=`greppid Valgrind`
+perfpid=`greppid MainSingleThreaded`
 echo perfpid =$perfpid
 echo running jstat
 jstat -gc -h10 $perfpid 20000 999999 > jstat.log &
