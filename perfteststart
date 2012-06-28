@@ -4,12 +4,12 @@ rm top_cocaine_slave.log
 rm perftest.log
 rm gc.log
 rm jstat.log
-sudo src/test/resources/run.sh &
+sudo src/test/resources/run_cocaine.sh &
 sleep 3s
 echo runnint ant perftest
-src/main/bin/run.sh &>perftest.log &
+src/test/resources/run_client.sh &>perftest.log &
 sleep 3s
-perfpid=`greppid Valgrind`
+perfpid=`greppid MainSingleThreaded`
 echo perfpid =$perfpid
 echo running jstat
 jstat -gc -h10 $perfpid 20000 999999 > jstat.log &
