@@ -16,6 +16,8 @@ jstat -gc -h10 $perfpid 20000 999999 > jstat.log &
 echo running top ant
 top -b -p $perfpid > top.log &
 echo top cocained
+echo cocained_pid = `greppid cocained`
+echo cocaine salve pid = `greppid cocaine-slave`
 top -b -p `greppid cocained` > top_cocained.log &
 echo top cocaine-slave
 top -b -p `greppid cocaine-slave` > top_cocaine_slave.log &
