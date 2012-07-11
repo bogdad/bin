@@ -5,10 +5,10 @@ rm perftest.log
 rm gc.log
 rm jstat.log
 src/test/resources/run_cocaine.sh &
-sleep 3s
+sleep 2s
 echo runnint ant perftest
 src/test/resources/run_client.sh &>perftest.log &
-sleep 3s
+sleep 2s
 perfpid=`greppid MainSingleThreaded`
 echo perfpid =$perfpid
 echo running jstat
@@ -22,3 +22,4 @@ top -b -p `greppid cocained` > top_cocained.log &
 echo top cocaine-slave
 top -b -p `greppid cocaine-slave` > top_cocaine_slave.log &
 echo all started
+rm dealer.log
