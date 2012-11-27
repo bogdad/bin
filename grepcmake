@@ -1,0 +1,1 @@
+find . -name '*.cmake' | xargs grep -n "$@"
