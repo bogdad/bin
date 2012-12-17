@@ -1,1 +1,1 @@
-ps aux | grep $1 | grep -v grep | tr -s [:space:] | cut -f2 -d' ' | xargs sudo kill -9
+ps aux | grep $1 | grep -v grep | tr -s \t[:space:] | cut -f2 -d' ' | xargs sudo kill -9

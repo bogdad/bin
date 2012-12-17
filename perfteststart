@@ -1,25 +1,21 @@
-rm top.log
-rm top_cocained.log
-rm top_cocaine_slave.log
-rm perftest.log
-rm gc.log
-rm jstat.log
+rm *.log
 src/test/resources/run_cocaine.sh &
-sleep 2s
-echo runnint ant perftest
-src/test/resources/run_client.sh &>perftest.log &
-sleep 2s
-perfpid=`greppid MainSingleThreaded`
-echo perfpid =$perfpid
-echo running jstat
-jstat -gc -h10 $perfpid 20000 999999 > jstat.log &
-echo running top ant
-top -b -p $perfpid > top.log &
+sleep 5s
+
+src/test/resources/run_and_track_client.sh MainSingleThreaded
+#src/test/resources/run_and_track_client.sh MainSingleThreadedChunked
+#src/test/resources/run_and_track_client.sh MainSingleThreadedGetLoop
+#src/test/resources/run_and_track_client.sh MainSingleThreadedGetLoopChunked
+#src/test/resources/run_and_track_client.sh MainSingleThreadedGetsException
+sleep 5s
 echo top cocained
 echo cocained_pid = `greppid cocained`
-echo cocaine salve pid = `greppid cocaine-slave`
+echo `greppid cocaine-slave| tr [:space:] ,` > cocaine_slave_pids
+sed -ie 's/,$//' cocaine_slave_pids
 top -b -p `greppid cocained` > top_cocained.log &
 echo top cocaine-slave
-top -b -p `greppid cocaine-slave` > top_cocaine_slave.log &
+top -b -p `cat cocaine_slave_pids` > top_cocaine_slave.log &
+cat cocaine_slave_pids
+rm cocaine_slave_pids
 echo all started
-rm dealer.log
+#rm dealer.log

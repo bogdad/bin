@@ -1,1 +1,2 @@
 find . -name '*.java' | xargs grep -n "$@"
+find . -name '*.properties' | xargs grep -n "$@"
