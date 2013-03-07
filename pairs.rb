@@ -20,16 +20,6 @@ second.pop
 
 diff = first.zip(second).map{|x,y| x-y}
 
-#puts "radix end"
-diff = []
-i = 0
-#puts "numbers " + numbers.to_s
-while  i < numbers.length-1 do
-   diff << (numbers[i+1]-numbers[i])
-   i = i + 1
-end
-
-
 #puts diff
 i = 0
 j = 0
