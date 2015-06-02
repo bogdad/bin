@@ -1,0 +1,2 @@
+find . -name '*.js' | xargs grep -n "$@"
+#find . -name '*.properties' | xargs grep -n "$@"
