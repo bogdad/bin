@@ -1,0 +1,1 @@
+find . -name '*.rs' | xargs grep -n "$@"
