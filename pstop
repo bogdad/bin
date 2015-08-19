@@ -1,0 +1,2 @@
+ps aux | grep $1 | grep -v grep | tr -s \t[:space:] | cut -f2 -d' ' > /tmp/pstop111
+top -p `cat /tmp/pstop111`
